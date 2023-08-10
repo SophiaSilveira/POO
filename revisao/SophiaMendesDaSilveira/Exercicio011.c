@@ -1,3 +1,8 @@
+/*Nome Arquivo: Exercicio011
+Nome Autor: Sophia Mendes da Silveira
+Finalidade: conferir um palindromo
+Data de criação: 09/08/2023*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -7,14 +12,14 @@ int palindromo(char *palavra);
 
 int palindromo(char *palavra) {
   // Coloque a sua implementacao aqui...
-    int tam = strlen(palavra) -1;
+  int tam = strlen(palavra) -1;
+  
+  for(int i = 0; i <= tam; i++){
+    if(palavra[i] != palavra[tam]) return 0;
+    tam--;
+  } 
 
-    for(int i = 0; i <= tam; i++){
-        if(palavra[i] != palavra[tam]) return 0;
-        tam--;
-    }
-
-    return 1;
+  return 1;
 }
 
 int main() {
