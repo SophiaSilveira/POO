@@ -8,7 +8,7 @@ Data de criação: 10/08/2023*/
 int encontra_numero(int vet[], int tam) {
   int qtd = 0;
 
-  for(int i = 0;  i < tam - 1; i++){
+  for(int i = 0;  i < tam - 2; i++){
     if(vet[i] + vet[i+1] == vet[i+2])
       qtd++;
   }
