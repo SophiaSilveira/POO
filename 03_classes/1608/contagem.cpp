@@ -12,8 +12,9 @@ class Contador {
         int valor;
 
     public:
-    
-        Contador(int v = 0){
+        static const int DEFAULT = 0; //Constantes em maiusculas // static, algo da classe
+
+        Contador(int v = DEFAULT){
             valor = v;
 
             #ifdef DEBUG
@@ -55,7 +56,7 @@ class Contador {
         }
 
         void zera(){ //Mutator
-            valor = 0;
+            valor = DEFAULT;
 
            #ifdef DEBUG
            cout << "+Contador(" << valor << ") zerado..." << endl;
@@ -105,5 +106,10 @@ int main() {
 
     cout << "c1: " << c1.obtemValor() << endl;
     cout << "c2: " << c2.obtemValor() << endl;
+    cout << "Contador::DEFAULT = " << Contador::DEFAULT << endl;
+
+    cout << "C5 = " << c5->DEFAULT << endl;
+    
+
     return 0;
 }
