@@ -2,41 +2,23 @@
 
 using namespace std;
 
-int main(){
-
-    int tam = 0, menorN, linha = 0;
-    while(tam % 2 == 0){
-        cin >> tam;
+void imprimeValor(int start, int final){
+    for(int i = 1; i <= final; i++){
+        if(i < start) cout << "  ";
+        else cout << i << " ";
     }
+    cout << endl;
+    if((start + 1) == (final + 1)) return;
+    imprimeValor(start + 1, final -1);
+}
+
+int main(){
+    int n = 0;
+
+    while((n % 2) == 0)
+    cin >> n;
     
-    int ** mat = new int*[tam];
+    imprimeValor(1, n);
 
-    
-   for (int i = 0; i < tam; i++) {
-        mat[i] = new int[tam];
-   }
-
-     for (int i = 0; i < tam; i++) {
-        for (int k = 0; k < tam; k++) {
-            mat[i][k] = i;
-        }
-   }
-
-     
-    menorN = mat[0][0];
-
-
-    for (int i = 0; i < tam; i++) {
-        for (int k = 0; k < tam; k++) {
-           if(mat[i][k] < menorN){
-            linha = i;
-           }
-        }
-   }
-
-    cout << linha << endl;
-
-   delete mat;
    return 0;
-
 }

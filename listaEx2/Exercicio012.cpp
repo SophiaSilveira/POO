@@ -21,10 +21,8 @@ int main(){
             cin >> mat[i][k];
         }
    }
-
      
     menorN = mat[0][0];
-
 
     for (int i = 0; i < tam; i++) {
         for (int k = 0; k < tam; k++) {

@@ -21,7 +21,7 @@ void salvaDados(dados p[], string info, int ind, int local){
             break;
 
         case 1:
-            p[ind].altura = stod(info);
+            p[ind].altura = stod(info) ;
             break;
         
         case 2:
@@ -48,9 +48,9 @@ void aniversariosMes(dados p[], string mes){
     for (int ind = 0; ind < TAM; ind++){
         if(p[ind].nascimento.mes == stoi(mes)){
             sinal = 0;
-            cout << p[ind].nome << ";" << p[ind].altura << ";" << 
+            cout << p[ind].nome << ";" << p[ind].altura << "00"<<";" << 
             p[ind].nascimento.dia << "," << p[ind].nascimento.mes << 
-            "," << p[ind].nascimento.ano << endl;
+            "," << p[ind].nascimento.ano;
         }
     }
 
