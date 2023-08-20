@@ -50,7 +50,7 @@ void aniversariosMes(dados p[], string mes){
             sinal = 0;
             cout << p[ind].nome << ";" << p[ind].altura << "00"<<";" << 
             p[ind].nascimento.dia << "," << p[ind].nascimento.mes << 
-            "," << p[ind].nascimento.ano;
+            "," << p[ind].nascimento.ano << endl;
         }
     }
 
