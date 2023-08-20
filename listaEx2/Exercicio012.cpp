@@ -1,3 +1,9 @@
+/*
+Nome Arquivo: Exercicio012
+Nome Autor: Sophia Mendes da Silveira
+Finalidade do progrmama: ler uma matriz quadrada de inteiros e imprimir o numero da linha que contém o menor elemento da matriz.
+Data de criação: 19/08/2023
+*/
 #include <iostream>
 
 using namespace std;

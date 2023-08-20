@@ -1,3 +1,10 @@
+/*
+Nome Arquivo: Exercicio011
+Nome Autor: Sophia Mendes da Silveira
+Finalidade do progrmama: ler o numero de colunas e linhas da matriz, ler a entrada para preencher a matriz, 
+depois verificar a matriz e trocar os números impares por seus respectivo modulos
+Data de criação: 19/08/2023
+*/
 #include <iostream>
 
 using namespace std;

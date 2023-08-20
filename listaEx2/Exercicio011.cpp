@@ -1,3 +1,10 @@
+/*
+Nome Arquivo: Exercicio011
+Nome Autor: Sophia Mendes da Silveira
+Finalidade do progrmama: Armazenar dados de ate 10 pessoas utilizando struct e vetor de struct, 
+receber um mes, comparar os registros dos dados com este mes e imprimilos no padrao csv.
+Data de criação: 19/08/2023
+*/
 #include <iostream>
 #define TAM 10
 
