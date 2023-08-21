@@ -20,9 +20,6 @@ int main(){
     
    for (int i = 0; i < tam; i++) {
         mat[i] = new int[tam];
-   }
-
-     for (int i = 0; i < tam; i++) {
         for (int k = 0; k < tam; k++) {
             cin >> mat[i][k];
         }
@@ -40,7 +37,10 @@ int main(){
 
     cout << linha << endl;
 
-   delete mat;
-   return 0;
+  for (int i = 0; i < tam; i++) { 
+            delete[] mat[i];
+   }
 
+   delete[] mat;
+   return 0;
 }
