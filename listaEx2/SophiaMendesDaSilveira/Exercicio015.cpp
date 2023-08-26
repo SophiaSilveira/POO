@@ -37,7 +37,11 @@ int main(){
         cout << endl;
    }
 
-   delete mat;
+    for (int i = 0; i < col; i++) { 
+            delete[] mat[i];
+   }
+
+   delete[] mat;
    return 0;
 
 }
