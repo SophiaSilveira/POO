@@ -3,8 +3,6 @@
 #ifndef _CAIXAREGISTRADORA_HPP
 #define _CAIXAREGISTRADORA_HPP
 
-#include <sstream>
-
 using namespace std;
 
 class CaixaRegistradora {
@@ -22,4 +20,5 @@ class CaixaRegistradora {
         void limpa();
         string str();
 };
+
 #endif
