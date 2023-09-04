@@ -26,7 +26,6 @@ class Turma {
         int obtemNumALunos();
         int obtemNumPresencas();
         Aluno &obtemAluno(int i);
-
 };  
 
 #endif
