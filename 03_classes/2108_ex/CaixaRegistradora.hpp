@@ -21,6 +21,7 @@ class CaixaRegistradora {
         int obtemNumItens();
         void limpa();
         string str();
+        
 };
 
 #endif
