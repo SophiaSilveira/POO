@@ -53,6 +53,7 @@ class Aluno {
 
         string str(){
             stringstream ss;
+            stringstream nota_ss;
 
             ss.fill('0');
 
@@ -60,12 +61,14 @@ class Aluno {
             string ss_str = ss.str();
 
             if(nota != -1.0){
-                stringstream nota_ss;
+                
                 nota_ss << ": " << fixed << setprecision(4) << nota << endl;
                 return ss_str + nota_ss.str();
             }
 
-            return ss_str;
+            nota_ss << endl;
+
+            return ss_str + nota_ss.str();
         }
 };
 
@@ -157,7 +160,7 @@ class Turma {
             ss << numeroTurma << " - " << nomeDisciplina << " - Prof. " << nomeProfessor << endl;
             string ss_str = ss.str();
            
-            if(numeroAlunos >= 0){
+            if(numeroAlunos > 0){
 
                 for(int i = 0; i < numeroAlunos; i++){
                     aluno +=  alunos[i]->str();
@@ -165,7 +168,7 @@ class Turma {
 
                 stringstream media;
                 
-                media << endl << "Media = " << fixed << setprecision(4) << calculaMedia() << endl;
+                media << "MEDIA = " << fixed << setprecision(4) << calculaMedia() << endl;
             return ss_str + aluno + media.str();
             }
 
