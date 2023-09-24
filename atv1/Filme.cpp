@@ -9,6 +9,10 @@ Filme::Filme(int n, string t, int f, string e){
     titulo = t;
     faixaEtaria = f;
     estilo = e;
+
+    #ifdef DEBUG
+        cout << "+ Filme(" << titulo << " ["<< numero <<"]" << " - " << faixaEtaria <<" anos - " << estilo << ") criado" << endl;
+    #endif
 }
 
 Filme::~Filme(){
