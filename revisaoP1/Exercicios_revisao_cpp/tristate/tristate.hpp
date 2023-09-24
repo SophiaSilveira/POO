@@ -3,6 +3,8 @@
 #ifndef _TRISTATE_HPP
 #define _TRISTATE_HPP
 
+using namespace std;
+
 class Tristate{
     private:
         char state;
