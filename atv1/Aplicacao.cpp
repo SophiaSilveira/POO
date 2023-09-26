@@ -36,43 +36,61 @@ Aplicacao::~Aplicacao(){
 }
 
 bool Aplicacao::carregaFilmes(string nomeArquivo){
-    ifstream ff;
+    ifstream iff;
+    iff.open(nomeArquivo, ios::in);
+    if(!iff.is_open()) return false;
 
-   ff.open(nomeArquivo, ios::in);
-
-    if(!ff.is_open()) false;
-
-    do{
+    while(1){
         string numero, titulo, faixaE, estilo;
 
-        if (!getline(ff, numero) || !getline(ff, titulo) || !getline(ff, faixaE) || !getline(ff, estilo))
-                break;
+        if(!getline(iff, numero) || !getline(iff, titulo) || !getline(iff, faixaE) || !getline(iff, estilo))
+            break;
+
 
         filmes[numFilmes] = new Filme(stoi(numero), titulo, stoi(faixaE), estilo);
         ++numFilmes;
+   }
 
-   } while(ff.good());
-
-    ff.close();
+    iff.close();
     return true;
 }  
 
 
 bool Aplicacao::salvaFilmes(string nomeArquivo){
+    ofstream off;
+    off.open(nomeArquivo, ios::out);
+    if(!off.is_open()) return false;
+
+    for(int i = 0; i < numFilmes; i++){
+        off << filmes[i]->str() << endl;
+    }
+
+    off.close();
     return true;
 }
 
 void Aplicacao::mostraFilmes(){
-
+    for(int i = 0; i < numFilmes; i++){
+        cout << filmes[i]->str() << endl;
+    }
 }
 
 void Aplicacao::ordenaFilmes(){
+    for (int i = 1; i < numFilmes ; ++i) {
+        Filme *base = filmes[i];
+        int j = i -1;
+        while ( j >=0 && base->operator<(*filmes[j])) {
+            filmes[j +1] = filmes[j];
+            --j;
+        }
 
+    filmes[j +1] = base;
+    }
 }
 
-Filme Aplicacao::*obtemFilme(int id){
-
-    return nullptr;
+Filme *Aplicacao::obtemFilme(int id){
+    if(id <0 && id >= numFilmes) return nullptr;
+    return filmes[id];
 }
 
 /*

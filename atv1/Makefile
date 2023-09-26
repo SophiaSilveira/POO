@@ -1,12 +1,24 @@
 #Makefile app1
 
-EXECUTAVEL = app1
-CFLAGS = -c -std=c++11
+EXECUTAVEL = app
+CFLAGS = -c -std=c++11 #-DDEBUG
 
-all = ${EXECUTAVEL}
+all:  ${EXECUTAVEL}
 
-${EXECUTAVEL} = Filme.o
-				@g++ Filme.o -o ${EXECUTAVEL}
+${EXECUTAVEL}: app1.o Aplicacao.o Filme.o
+				@g++ app1.o Aplicacao.o Filme.o -o ${EXECUTAVEL}
 
-Filme.o = Filme.cpp Filme.hpp
-		  @g++ ${CFLAGS} Filme.cpp
+app.o:  app1.cpp Aplicacao.hpp
+		  @g++ ${CFLAGS} app1.cpp
+
+Aplicacao.o : Aplicacao.cpp Aplicacao.hpp Filme.hpp
+				@g++ ${CFLAGS} Aplicacao.cpp
+
+Filme.o: Filme.cpp Filme.hpp
+			@g++ ${CFLAGS} Filme.cpp
+
+run: ${EXECUTAVEL}
+		@./${EXECUTAVEL}
+
+clean: 
+		@rm -f Apliacao.o Filme.o app1.o ${EXECUTAVEL}

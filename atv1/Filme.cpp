@@ -39,7 +39,7 @@ string Filme::obtemEstilo() const{
 
 string Filme::str() const{
     stringstream ss;
-    ss << titulo << " [" << numero << "] -" << faixaEtaria << " anos" << " - " << estilo;
+    ss << titulo << " [" << numero << "] - " << faixaEtaria << " anos" << " - " << estilo;
     return ss.str();
 }
 
@@ -60,9 +60,7 @@ void Filme::defineEstilo(string e){
 }
 
 bool Filme::operator<(const Filme &f) const{
-    if(titulo != f.obtemTitulo()) return false;
-
-    return true;
+    return titulo < f.obtemTitulo();
 }
 
 istream &operator>>(istream &in,Filme &f){
