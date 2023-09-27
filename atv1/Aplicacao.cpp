@@ -17,7 +17,6 @@ Aplicacao::Aplicacao(){
         filmes[i] = nullptr;
     }
 
-
     #ifdef DEBUG
         cout << "+ Aplicacao("<< numCinemas << " cinemas, " << numFilmes << " filmes, " << numProgramacao <<" programacao) - criado" << endl;
     #endif
@@ -45,8 +44,7 @@ bool Aplicacao::carregaFilmes(string nomeArquivo){
 
         if(!getline(iff, numero) || !getline(iff, titulo) || !getline(iff, faixaE) || !getline(iff, estilo))
             break;
-
-
+            
         filmes[numFilmes] = new Filme(stoi(numero), titulo, stoi(faixaE), estilo);
         ++numFilmes;
    }
@@ -89,7 +87,7 @@ void Aplicacao::ordenaFilmes(){
 }
 
 Filme *Aplicacao::obtemFilme(int id){
-    if(id <0 && id >= numFilmes) return nullptr;
+    if(id < 0 || id >= numFilmes) return nullptr;
     return filmes[id];
 }
 
