@@ -16,7 +16,7 @@ using namespace std;
 
 class Aplicacao {
 private:
- // Cinema *cinemas[MAX_CINEMAS];
+  Cinema *cinemas[MAX_CINEMAS];
   int numCinemas;
   Filme *filmes[MAX_FILMES];
   int numFilmes;
@@ -31,13 +31,14 @@ public:
   void ordenaFilmes();
   Filme *obtemFilme(int id);
 
-/*
+
   bool carregaCinemas(string nomeArquivo); // Segunda etapa
   bool salvaCinemas(string nomeArquivo);
   void mostraCinemas();
   void ordenaCinemas();
   Cinema *obtemCinema(int id);
 
+  /*
   bool carregaProgramacao(string nomeArquivo); // Terceira etapa
   void mostraProgramacao();*/
 };

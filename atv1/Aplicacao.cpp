@@ -3,7 +3,6 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <string>
 #include "Aplicacao.hpp"
 
 using namespace std;
@@ -12,6 +11,10 @@ Aplicacao::Aplicacao(){
     numCinemas = 0;
     numFilmes = 0;
     numProgramacao = 0;
+    
+    for (int i = 0; i < MAX_FILMES; i++) {
+        filmes[i] = nullptr;
+    }
 
 
     #ifdef DEBUG
@@ -87,7 +90,7 @@ Filme *Aplicacao::obtemFilme(int id){
     return filmes[id];
 }
 
-/*
+
 // Segunda etapa - NÃO FEITA
 
 bool Aplicacao::carregaCinemas(string nomeArquivo){ 
@@ -103,6 +106,7 @@ void Aplicacao::ordenaCinemas(){}
 
 Cinema Aplicacao::*obtemCinema(int id){}
 
+/*
 bool Aplicacao::carregaProgramacao(string nomeArquivo){ // Terceira etapa
     return true;
 }

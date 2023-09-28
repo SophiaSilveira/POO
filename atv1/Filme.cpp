@@ -11,7 +11,7 @@ Filme::Filme(int n, string t, int f, string e){
     estilo = e;
 
     #ifdef DEBUG
-        cout << "+ Filme(" << titulo << " ["<< numero <<"]" << " - " << faixaEtaria <<" anos - " << estilo << ") criado" << endl;
+        cout << "+ Filme(" << titulo << " ["<< numero <<"] - " << faixaEtaria <<" anos - " << estilo << ") criado" << endl;
     #endif
 }
 

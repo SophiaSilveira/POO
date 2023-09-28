@@ -27,8 +27,8 @@ public:
   void defineEndereco(Endereco &e);
   void defineSalas(int s);
   bool operator<(const Cinema &c) const;
-  friend istream &operator>>(istream &in,Cinema &c);
-  friend ostream &operator<<(ostream &out,const Cinema &c);
+  friend istream &operator>>(istream &in, Cinema &c);
+  friend ostream &operator<<(ostream &out, const Cinema &c);
 };
 
 #endif
