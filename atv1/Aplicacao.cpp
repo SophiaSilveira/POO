@@ -13,9 +13,6 @@ Aplicacao::Aplicacao(){
     numFilmes = 0;
     numProgramacao = 0;
 
-    for (int i = 0; i < MAX_FILMES; i++) {
-        filmes[i] = nullptr;
-    }
 
     #ifdef DEBUG
         cout << "+ Aplicacao("<< numCinemas << " cinemas, " << numFilmes << " filmes, " << numProgramacao <<" programacao) - criado" << endl;
