@@ -21,4 +21,4 @@ run: ${EXECUTAVEL}
 		@./${EXECUTAVEL}
 
 clean: 
-		@rm -f Apliacao.o Filme.o app1.o ${EXECUTAVEL}
+		@rm -f Aplicacao.o Filme.o app1.o ${EXECUTAVEL}

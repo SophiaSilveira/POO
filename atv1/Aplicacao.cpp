@@ -40,12 +40,11 @@ bool Aplicacao::carregaFilmes(string nomeArquivo){
     if(!iff.is_open()) return false;
 
     while(1){
-        string numero, titulo, faixaE, estilo;
+        filmes[numFilmes] = new Filme();
+        iff >> *filmes[numFilmes];
 
-        if(!getline(iff, numero) || !getline(iff, titulo) || !getline(iff, faixaE) || !getline(iff, estilo))
-            break;
-            
-        filmes[numFilmes] = new Filme(stoi(numero), titulo, stoi(faixaE), estilo);
+        if(!iff.good()) break;
+        
         ++numFilmes;
    }
 
@@ -60,7 +59,7 @@ bool Aplicacao::salvaFilmes(string nomeArquivo){
     if(!off.is_open()) return false;
 
     for(int i = 0; i < numFilmes; i++){
-        off << filmes[i]->str() << endl;
+        off << *filmes[i];
     }
 
     off.close();

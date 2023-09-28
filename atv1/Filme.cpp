@@ -63,19 +63,26 @@ bool Filme::operator<(const Filme &f) const{
     return titulo < f.obtemTitulo();
 }
 
-istream &operator>>(istream &in,Filme &f){
-    in >> f.titulo;
-    in >> f.numero;
-    in >> f.faixaEtaria;
-    in >> f.estilo;
+istream &operator>>(istream &in, Filme &f){
+    string aux;
+
+    if(!getline(in, aux)) return in;
+    f.numero = stoi(aux);
+   
+    if(!getline(in, f.titulo)) return in;
+
+    if(!getline(in, aux)) return in;
+    f.faixaEtaria = stoi(aux);
+    
+    if(!getline(in, f.estilo)) return in;
 
     return in;
 }
 
 ostream &operator<<(ostream &out,const Filme &f){
-    out << f.obtemTitulo();
-    out << f.obtemNumero();
-    out << f.obtemFaixaEtaria();
-    out << f.obtemEstilo();
+    out << f.obtemNumero() << endl;
+    out << f.obtemTitulo() << endl;
+    out << f.obtemFaixaEtaria() << endl;
+    out << f.obtemEstilo() << endl;
     return out;
 }
