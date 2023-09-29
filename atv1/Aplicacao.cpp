@@ -40,9 +40,10 @@ bool Aplicacao::carregaFilmes(string nomeArquivo){
     if(!iff.is_open()) return false;
 
     while(1){
+
         filmes[numFilmes] = new Filme();
         iff >> *filmes[numFilmes];
-
+        
         if(!iff.good()) break;
         
         ++numFilmes;
@@ -104,7 +105,11 @@ bool Aplicacao::salvaCinemas(string nomeArquivo){
 void Aplicacao::mostraCinemas(){}
 void Aplicacao::ordenaCinemas(){}
 
-Cinema Aplicacao::*obtemCinema(int id){}
+Cinema* Aplicacao::obtemCinema(int id){
+    Cinema *e = new Cinema();
+
+    return e;
+}
 
 /*
 bool Aplicacao::carregaProgramacao(string nomeArquivo){ // Terceira etapa

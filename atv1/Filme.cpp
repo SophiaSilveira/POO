@@ -4,7 +4,7 @@
 #include <sstream>
 #include "Filme.hpp"
 
-Filme::Filme(int n, string t, int f, string e){
+Filme::Filme(int n, string t, int f, string e) {
     numero = n;
     titulo = t;
     faixaEtaria = f;
@@ -15,71 +15,66 @@ Filme::Filme(int n, string t, int f, string e){
     #endif
 }
 
-Filme::~Filme(){
+Filme::~Filme() {
     #ifdef DEBUG
         cout << "- Filme(" << titulo << " ["<< numero <<"]" << " - " << faixaEtaria <<" anos - " << estilo << ") destruido" << endl;
     #endif
 }
 
-int Filme::obtemNumero() const{
+int Filme::obtemNumero() const {
     return numero;
 }
 
-string Filme::obtemTitulo() const{
+string Filme::obtemTitulo() const {
     return titulo;
 }
 
-int Filme::obtemFaixaEtaria() const{
+int Filme::obtemFaixaEtaria() const {
     return faixaEtaria;
 }
 
-string Filme::obtemEstilo() const{
+string Filme::obtemEstilo() const {
     return estilo;
 }
 
-string Filme::str() const{
+string Filme::str() const {
     stringstream ss;
     ss << titulo << " [" << numero << "] - " << faixaEtaria << " anos" << " - " << estilo;
     return ss.str();
 }
 
-void Filme::defineNumero(int n){
+void Filme::defineNumero(int n) {
     numero = n;
 }
 
-void Filme::defineTitulo(string t){
+void Filme::defineTitulo(string t) {
     titulo = t;
 }
 
-void Filme::defineFaixaEtaria(int f){
+void Filme::defineFaixaEtaria(int f) {
     faixaEtaria = f;
 }
 
-void Filme::defineEstilo(string e){
+void Filme::defineEstilo(string e) {
     estilo = e;
 }
 
-bool Filme::operator<(const Filme &f) const{
+bool Filme::operator<(const Filme &f) const {
     return titulo < f.obtemTitulo();
 }
 
-istream &operator>>(istream &in, Filme &f){
-    string aux;
+istream &operator>>(istream &in, Filme &f) {
+    string num, faixaE;
 
-    if(!getline(in, aux)) return in;
-    f.numero = stoi(aux);
-   
-    if(!getline(in, f.titulo)) return in;
-
-    if(!getline(in, aux)) return in;
-    f.faixaEtaria = stoi(aux);
+    if(getline(in, num) && getline(in, f.titulo) && getline(in, faixaE) && getline(in, f.estilo)){
+        f.numero = stoi(num);
+        f.faixaEtaria = stoi(faixaE);
+        return in;
+    } 
     
-    if(!getline(in, f.estilo)) return in;
-
-    return in;
 }
 
-ostream &operator<<(ostream &out,const Filme &f){
+ostream &operator<<(ostream &out,const Filme &f) {
     out << f.obtemNumero() << endl;
     out << f.obtemTitulo() << endl;
     out << f.obtemFaixaEtaria() << endl;
