@@ -12,15 +12,6 @@ Aplicacao::Aplicacao(){
     numFilmes = 0;
     numProgramacao = 0;
     
-    for (int i = 0; i < MAX_FILMES; i++) {
-        filmes[i] = nullptr;
-    }
-
-    /*for (int i = 0; i < MAX_CINEMAS; i++) {
-        cinemas[i] = nullptr;
-    }*/
-
-
     #ifdef DEBUG
         cout << "+ Aplicacao("<< numCinemas << " cinemas, " << numFilmes << " filmes, " << numProgramacao <<" programacao) - criado" << endl;
     #endif
@@ -94,12 +85,9 @@ void Aplicacao::ordenaFilmes(){
 }
 
 Filme *Aplicacao::obtemFilme(int id){
-    if(id < 0 || id >= numFilmes) return nullptr;
+    if(id < 0 || id >= numFilmes || numFilmes == 0) return nullptr;
     return filmes[id];
 }
-
-
-// Segunda etapa - NÃO FEITA
 
 bool Aplicacao::carregaCinemas(string nomeArquivo){ 
     ifstream ifc;
@@ -121,6 +109,15 @@ bool Aplicacao::carregaCinemas(string nomeArquivo){
 }
 
 bool Aplicacao::salvaCinemas(string nomeArquivo){
+    ofstream ofc;
+    ofc.open(nomeArquivo, ios::out);
+    if(!ofc.is_open()) return false;
+
+    for(int i = 0; i < numCinemas; i++){
+        ofc << *cinemas[i];
+    }
+
+    ofc.close();
     return true;
 }
 
@@ -130,12 +127,22 @@ void Aplicacao::mostraCinemas(){
     }
 }
 
-void Aplicacao::ordenaCinemas(){}
+void Aplicacao::ordenaCinemas(){
+    for (int i = 1; i < numCinemas ; ++i) {
+        Cinema *base = cinemas[i];
+        int j = i -1;
+        while ( j >=0 && base->operator<(*cinemas[j])) {
+            cinemas[j +1] = cinemas[j];
+            --j;
+        }
+
+    cinemas[j +1] = base;
+    }
+}
 
 Cinema* Aplicacao::obtemCinema(int id){
-    Cinema *e = new Cinema();
-
-    return e;
+    if(id < 0 || id >= numCinemas || numCinemas == 0) return nullptr;
+    return cinemas[id];
 }
 
 /*

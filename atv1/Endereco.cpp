@@ -70,6 +70,13 @@ istream &operator>>(istream &in, Endereco &e){
 }
 
 ostream &operator<<(ostream &out, const Endereco &e){
+  out << e.logradouro << endl;
+  out << e.numero << endl;
+  out << e.complemento << endl;
+  out << e.bairro << endl;
+  out << e.cep << endl;
+  out << e.cidade << endl;
+  out << e.estado << endl;
   return out;
 }
 

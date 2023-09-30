@@ -51,7 +51,7 @@ void Cinema::defineEndereco(Endereco &e) { endereco = e; }
 void Cinema::defineSalas(int s) { salas = s; }
 
 bool Cinema::operator<(const Cinema &c) const {
-    return true;
+    return nome < c.obtemNome();
 }
 
 istream &operator>>(istream &in, Cinema &c) {
@@ -64,5 +64,9 @@ istream &operator>>(istream &in, Cinema &c) {
 }
 
 ostream &operator<<(ostream &out, const Cinema &c) {
+    out << c.numero << endl;
+    out << c.nome << endl;
+    out << c.endereco;
+    out << c.salas << endl;
     return out;
 }

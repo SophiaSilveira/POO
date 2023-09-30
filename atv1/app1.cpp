@@ -11,14 +11,11 @@ int main() {
   if (!aplicacao.carregaFilmes("filmes.txt")) return 0;
   cout << "----------" << endl;
   aplicacao.mostraFilmes();
-
   aplicacao.ordenaFilmes();
-
   if (!aplicacao.salvaFilmes("filmes.txt.out")) return 0;
   cout << "----------" << endl;
-
   aplicacao.mostraFilmes();
-  cout << "----------" << endl;
 
+  cout << "----------" << endl;
   return 0;
 }
