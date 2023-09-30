@@ -20,7 +20,7 @@ private:
   int numCinemas;
   Filme *filmes[MAX_FILMES];
   int numFilmes;
-  //Programacao *programacao[MAX_PROGRAMACAO];
+  Programacao *programacao[MAX_PROGRAMACAO];
   int numProgramacao;
 public:
   Aplicacao(); // Primeira etapa
@@ -31,16 +31,14 @@ public:
   void ordenaFilmes();
   Filme *obtemFilme(int id);
 
-
   bool carregaCinemas(string nomeArquivo); // Segunda etapa
   bool salvaCinemas(string nomeArquivo);
   void mostraCinemas();
   void ordenaCinemas();
   Cinema *obtemCinema(int id);
 
-  /*
   bool carregaProgramacao(string nomeArquivo); // Terceira etapa
-  void mostraProgramacao();*/
+  void mostraProgramacao();
 };
 
 #endif
