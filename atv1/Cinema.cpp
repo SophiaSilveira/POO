@@ -10,7 +10,7 @@ Cinema::Cinema() {
     nome = "";
 
     #ifdef DEBUG
-        cout << "+ Cinema( nº " << numero << ",  "<< nome <<" - sala " << salas << " - " << endereco.str() << ") criado" << endl;
+        cout << "+ Cinema( nº " << numero << ",  "<< nome <<" - sala " << salas << " - ) criado" << endl;
     #endif
 }
 
@@ -22,13 +22,13 @@ Cinema::Cinema(int n, string nm, Endereco &e, int s) {
     salas = s;
 
     #ifdef DEBUG
-        cout << "+ Cinema( nº " << numero << ",  "<< nome <<" - sala " << salas << " - " << endereco.str() << ") criado" << endl;
+        cout << "+ Cinema( nº " << numero << ",  "<< nome <<" - sala " << salas << " - ) criado" << endl;
     #endif
 }
 
 Cinema::~Cinema() {
     #ifdef DEBUG
-        cout << "- Cinema( nº " << numero << ",  "<< nome <<" - sala " << salas << " - " << endereco.str() << ") destruido" << endl;
+        cout << "- Cinema( nº " << numero << ",  "<< nome <<" - sala " << salas << " ) destruido" << endl;
     #endif
 }
 
@@ -40,7 +40,7 @@ int Cinema::obtemSalas() const { return salas; }
 string Cinema::str() const {
     stringstream ss;
 
-    ss << nome << " [ " << numero << "] " << endl << endereco.str() << endl << "Cinema(s): " << salas;
+    ss << nome << " [" << numero << "] " << endl << endereco.str() << endl << "Cinema(s): " << salas << endl;
 
     return ss.str();
 }
@@ -49,6 +49,20 @@ void Cinema::defineNumero(int n) { numero = n;}
 void Cinema::defineNome(string nm) { nome = nm; }
 void Cinema::defineEndereco(Endereco &e) { endereco = e; }
 void Cinema::defineSalas(int s) { salas = s; }
-  /*bool operator<(const Cinema &c) const;
-  friend istream &operator>>(istream &in, Cinema &c);
-  friend ostream &operator<<(ostream &out, const Cinema &c);*/
+
+bool Cinema::operator<(const Cinema &c) const {
+    return true;
+}
+
+istream &operator>>(istream &in, Cinema &c) {
+    string aux;
+    if(getline(in, aux)) c.numero = stoi(aux);
+    getline(in, c.nome);
+    in >> c.endereco;
+    if(getline(in, aux)) c.salas = stoi(aux);
+    return in;
+}
+
+ostream &operator<<(ostream &out, const Cinema &c) {
+    return out;
+}

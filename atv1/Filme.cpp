@@ -64,14 +64,17 @@ bool Filme::operator<(const Filme &f) const {
 }
 
 istream &operator>>(istream &in, Filme &f) {
-    string num, faixaE;
+    string aux;
 
-    if(getline(in, num) && getline(in, f.titulo) && getline(in, faixaE) && getline(in, f.estilo)){
-        f.numero = stoi(num);
-        f.faixaEtaria = stoi(faixaE);
-        return in;
-    } 
-    
+    if(getline(in, aux))  f.numero = stoi(aux);
+
+    getline(in, f.titulo);
+
+    if(getline(in, aux)) f.faixaEtaria = stoi(aux);
+
+    getline(in, f.estilo);
+       
+     return in;
 }
 
 ostream &operator<<(ostream &out,const Filme &f) {
