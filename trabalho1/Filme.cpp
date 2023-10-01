@@ -31,7 +31,12 @@ string Filme::obtemEstilo() const { return estilo; }
 
 string Filme::str() const {
     stringstream ss;
-    ss << titulo << " [" << numero << "] - " << faixaEtaria << " anos" << " - " << estilo;
+    ss << titulo << " [" << numero << "] - ";
+    
+    if(faixaEtaria > 0) ss << faixaEtaria << " anos";
+    else ss  << "LIVRE";
+
+    ss << " - " << estilo;
     return ss.str();
 }
 

@@ -25,11 +25,14 @@ Programacao::~Programacao(){
 }
 
 Cinema* Programacao::obtemCinema() const { return cinema; }
-int Programacao::obtemSala() const { return sala; }
-Filme* Programacao::obtemFilme() const { return filme; }
-int Programacao::obtemTipoDeExibicao() const { return tipoDeExibicao; }
-string Programacao::obtemHorarios() const { return horarios; }
 
+int Programacao::obtemSala() const { return sala; }
+
+Filme* Programacao::obtemFilme() const { return filme; }
+
+int Programacao::obtemTipoDeExibicao() const { return tipoDeExibicao; }
+
+string Programacao::obtemHorarios() const { return horarios; }
 
 string Programacao::str(bool incluiCinema) const {
     stringstream ss;
@@ -57,14 +60,20 @@ string Programacao::str(bool incluiCinema) const {
             break;
     }
 
-    if(filme->obtemFaixaEtaria() < 1) ss << " | " << "[LIVRE] | " << filme->obtemEstilo();
-    else ss << " | [" << filme->obtemFaixaEtaria() <<"] | " << filme->obtemEstilo();
+    if(filme->obtemFaixaEtaria() < 1) ss << " | " << "[LIVRE";
+    else ss << " | [" << filme->obtemFaixaEtaria();
+    
+    ss <<"] | " << filme->obtemEstilo();
 
     return ss.str();
 }
 
 void Programacao::defineCinema(Cinema *c) { cinema = c; }
+
 void Programacao::defineSala(int s) { sala = s; }
+
 void Programacao::defineFilme(Filme *f) { filme = f; }
+
 void Programacao::defineTipoDeExibicao(int t) { tipoDeExibicao = t; }
+
 void Programacao::defineHorarios(string h) { horarios = h; }

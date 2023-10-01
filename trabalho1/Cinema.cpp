@@ -42,7 +42,7 @@ int Cinema::obtemSalas() const { return salas; }
 string Cinema::str() const {
     stringstream ss;
 
-    ss << nome << " [" << numero << "] " << endl << endereco.str() << endl << "Cinema(s): " << salas << endl;
+    ss << nome << " [" << numero << "]" << endl << endereco.str() << endl << "Cinema(s): " << salas << endl;
 
     return ss.str();
 }

@@ -10,6 +10,15 @@ Aplicacao::Aplicacao(){
     numFilmes = 0;
     numProgramacao = 0;
     
+    for (int i = 0; i < MAX_FILMES; i++)
+        filmes[i] = nullptr;
+    
+    for (int i = 0; i < MAX_CINEMAS; i++)
+        cinemas[i] = nullptr;
+
+    for (int i = 0; i < MAX_PROGRAMACAO; i++)
+        programacao[i] = nullptr;
+
     #ifdef DEBUG
         cout << "+ Aplicacao("<< numCinemas << " cinemas, " << numFilmes << " filmes, " << numProgramacao <<" programacao) - criado" << endl;
     #endif
@@ -20,7 +29,7 @@ Aplicacao::~Aplicacao(){
         cout << "- Aplicacao(cinemas, filmes, programacao) - destruido" << endl;
     #endif
 
-    for (int i = 0; i <= numFilmes; i++)
+    for (int i = 0; i < numFilmes; i++)
         delete filmes[i];
 
     for (int i = 0; i <= numCinemas; i++) 
@@ -31,6 +40,8 @@ Aplicacao::~Aplicacao(){
 }
 
 bool Aplicacao::carregaFilmes(string nomeArquivo){
+    numFilmes = 0;
+
     ifstream iff;
     iff.open(nomeArquivo, ios::in);
     if(!iff.is_open()) {
@@ -91,7 +102,9 @@ Filme *Aplicacao::obtemFilme(int id){
     return nullptr;
 }
 
-bool Aplicacao::carregaCinemas(string nomeArquivo){ 
+bool Aplicacao::carregaCinemas(string nomeArquivo){
+    numCinemas = 0;
+     
     ifstream ifc;
     ifc.open(nomeArquivo, ios::in);
 
