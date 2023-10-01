@@ -184,8 +184,8 @@ bool Aplicacao::carregaProgramacao(string nomeArquivo){
             programacao[numProgramacao]->defineFilme(obtemFilme(stoi(aux)));
         
         if(getline(ifp, aux))programacao[numProgramacao]->defineTipoDeExibicao(stoi(aux));
+
         getline(ifp, aux);
-        
         programacao[numProgramacao]->defineHorarios(aux);
         
         if(!ifp.good()) break;
