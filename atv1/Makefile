@@ -1,4 +1,4 @@
-#Makefile app1
+#Makefile 
 
 EXECUTAVEL = app
 CFLAGS = -c -std=c++11 #-DDEBUG

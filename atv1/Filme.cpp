@@ -21,21 +21,13 @@ Filme::~Filme() {
     #endif
 }
 
-int Filme::obtemNumero() const {
-    return numero;
-}
+int Filme::obtemNumero() const { return numero; }
 
-string Filme::obtemTitulo() const {
-    return titulo;
-}
+string Filme::obtemTitulo() const { return titulo; }
 
-int Filme::obtemFaixaEtaria() const {
-    return faixaEtaria;
-}
+int Filme::obtemFaixaEtaria() const { return faixaEtaria; }
 
-string Filme::obtemEstilo() const {
-    return estilo;
-}
+string Filme::obtemEstilo() const { return estilo; }
 
 string Filme::str() const {
     stringstream ss;
@@ -43,21 +35,13 @@ string Filme::str() const {
     return ss.str();
 }
 
-void Filme::defineNumero(int n) {
-    numero = n;
-}
+void Filme::defineNumero(int n) { numero = n; }
 
-void Filme::defineTitulo(string t) {
-    titulo = t;
-}
+void Filme::defineTitulo(string t) { titulo = t; }
 
-void Filme::defineFaixaEtaria(int f) {
-    faixaEtaria = f;
-}
+void Filme::defineFaixaEtaria(int f) { faixaEtaria = f; }
 
-void Filme::defineEstilo(string e) {
-    estilo = e;
-}
+void Filme::defineEstilo(string e) { estilo = e; }
 
 bool Filme::operator<(const Filme &f) const {
     return titulo < f.obtemTitulo();
@@ -74,7 +58,7 @@ istream &operator>>(istream &in, Filme &f) {
 
     getline(in, f.estilo);
        
-     return in;
+    return in;
 }
 
 ostream &operator<<(ostream &out,const Filme &f) {
@@ -82,5 +66,6 @@ ostream &operator<<(ostream &out,const Filme &f) {
     out << f.obtemTitulo() << endl;
     out << f.obtemFaixaEtaria() << endl;
     out << f.obtemEstilo() << endl;
+    
     return out;
 }

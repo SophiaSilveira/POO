@@ -15,7 +15,6 @@ Cinema::Cinema() {
 }
 
 Cinema::Cinema(int n, string nm, Endereco &e, int s) {
-
     numero = n;
     nome = nm;
     endereco = e;
@@ -33,8 +32,11 @@ Cinema::~Cinema() {
 }
 
 int Cinema::obtemNumero() const { return numero; }
+
 string Cinema::obtemNome() const { return nome; }
+
 Endereco Cinema::obtemEndereco() const { return endereco; }
+
 int Cinema::obtemSalas() const { return salas; }
 
 string Cinema::str() const {
@@ -45,9 +47,12 @@ string Cinema::str() const {
     return ss.str();
 }
 
-void Cinema::defineNumero(int n) { numero = n;}
+void Cinema::defineNumero(int n) { numero = n; }
+
 void Cinema::defineNome(string nm) { nome = nm; }
+
 void Cinema::defineEndereco(Endereco &e) { endereco = e; }
+
 void Cinema::defineSalas(int s) { salas = s; }
 
 bool Cinema::operator<(const Cinema &c) const {

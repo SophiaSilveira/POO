@@ -34,7 +34,7 @@ public:
   void defineCEP(string cp);
   void defineCidade(string cd);
   void defineEstado(string e);
- friend istream &operator>>(istream &in, Endereco &e);
+  friend istream &operator>>(istream &in, Endereco &e);
   friend ostream &operator<<(ostream &out, const Endereco &e);
 };
 

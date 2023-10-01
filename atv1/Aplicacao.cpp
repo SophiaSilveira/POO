@@ -1,4 +1,4 @@
-// Aplicacao.cpp (Sophia Mendes da Silveira; 24 set. 2023)
+// Aplicacao.cpp (Sophia Mendes da Silveira; 01 out. 2023)
 
 #include <fstream>
 #include <iostream>
@@ -20,31 +20,29 @@ Aplicacao::~Aplicacao(){
         cout << "- Aplicacao(cinemas, filmes, programacao) - destruido" << endl;
     #endif
 
-    for (int i = 0; i <= numFilmes; i++) {
+    for (int i = 0; i <= numFilmes; i++)
         delete filmes[i];
-    }
 
-    for (int i = 0; i <= numCinemas; i++) {
+    for (int i = 0; i <= numCinemas; i++) 
         delete cinemas[i];
-    }
 
-    for (int i = 0; i <= numProgramacao; i++) {
+    for (int i = 0; i <= numProgramacao; i++)
         delete programacao[i];
-    }
 }
 
 bool Aplicacao::carregaFilmes(string nomeArquivo){
     ifstream iff;
     iff.open(nomeArquivo, ios::in);
-    if(!iff.is_open()) return false;
+    if(!iff.is_open()) {
+        salvaFilmes("filmes.txt.out");
+        return false;
+    }
 
     while(1){
-
         filmes[numFilmes] = new Filme();
         iff >> *filmes[numFilmes];
         
         if(!iff.good()) break;
-        
         ++numFilmes;
    }
 
@@ -85,11 +83,7 @@ void Aplicacao::ordenaFilmes(){
     }
 }
 
-Filme *Aplicacao::obtemFilme(int id){
-   /* if(id < 0 || id >= numFilmes || numFilmes == 0) return nullptr;
-    return filmes[id];*/
-
-    
+Filme *Aplicacao::obtemFilme(int id){ 
     for(int i = 0; i < numFilmes; i++){
         if(filmes[i]->obtemNumero() == id) return filmes[i];
     }
@@ -101,14 +95,16 @@ bool Aplicacao::carregaCinemas(string nomeArquivo){
     ifstream ifc;
     ifc.open(nomeArquivo, ios::in);
 
-    if(!ifc.is_open()) return false;
+    if(!ifc.is_open()){
+        salvaCinemas("cinemas.txt.out");
+        return false;
+    } 
 
     while(1){
         cinemas[numCinemas] = new Cinema();
         ifc >> *cinemas[numCinemas];
         
         if(!ifc.good()) break;
-        
         ++numCinemas;
     }
 
@@ -149,17 +145,12 @@ void Aplicacao::ordenaCinemas(){
 }
 
 Cinema* Aplicacao::obtemCinema(int id){
-    /*if(id < 0 || id >= numCinemas || numCinemas == 0) return nullptr;
-    return cinemas[id];*/
-
     for(int i = 0; i < numCinemas; i++){
         if(cinemas[i]->obtemNumero() == id) return cinemas[i];
     }
 
     return nullptr;
 }
-
-// Terceira etapa, não feita
 
 bool Aplicacao::carregaProgramacao(string nomeArquivo){ 
     ifstream ifp;
@@ -168,7 +159,6 @@ bool Aplicacao::carregaProgramacao(string nomeArquivo){
     if(!ifp.is_open()) return false;
 
     while(ifp.good()){
-
         programacao[numProgramacao] = new Programacao();
 
         if(getline(ifp, aux))
@@ -185,9 +175,7 @@ bool Aplicacao::carregaProgramacao(string nomeArquivo){
         
         programacao[numProgramacao]->defineHorarios(aux);
         
-    
         if(!ifp.good()) break;
-        
         ++numProgramacao;
    }
 
@@ -202,7 +190,6 @@ void Aplicacao::mostraProgramacao(){
 
     for(int i = 0; i < numCinemas; ++i){
         cout << cinemas[i]->obtemNome() << endl << endl;
-
         sala = cinemas[i]->obtemSalas();
 
         for (int s = 1; s <= sala; ++s){
