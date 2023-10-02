@@ -39,7 +39,7 @@ Endereco Cinema::obtemEndereco() const { return endereco; }
 
 int Cinema::obtemSalas() const { return salas; }
 
-string Cinema::str() const {
+string Cinema::str() const {// retorna as informações do cinema menos o cep
     stringstream ss;
 
     ss << nome << " [" << numero << "]" << endl << endereco.str() << endl << "Cinema(s): " << salas << endl;
@@ -59,8 +59,8 @@ bool Cinema::operator<(const Cinema &c) const {
     return nome < c.obtemNome();
 }
 
-istream &operator>>(istream &in, Cinema &c) {
-    string aux;
+istream &operator>>(istream &in, Cinema &c) {// sobrecarga >>
+    string aux; // auxiliar utilizada nos getlines para a verificaçao e conversão
     if(getline(in, aux)) c.numero = stoi(aux);
     getline(in, c.nome);
     in >> c.endereco;
@@ -68,7 +68,7 @@ istream &operator>>(istream &in, Cinema &c) {
     return in;
 }
 
-ostream &operator<<(ostream &out, const Cinema &c) {
+ostream &operator<<(ostream &out, const Cinema &c) {// sobrecarga <<
     out << c.numero << endl;
     out << c.nome << endl;
     out << c.endereco;

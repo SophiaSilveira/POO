@@ -29,12 +29,13 @@ int Filme::obtemFaixaEtaria() const { return faixaEtaria; }
 
 string Filme::obtemEstilo() const { return estilo; }
 
-string Filme::str() const {
+string Filme::str() const { //retorno das informações de forma padronizada
     stringstream ss;
     ss << titulo << " [" << numero << "] - ";
     
-    if(faixaEtaria > 0) ss << faixaEtaria << " anos";
-    else ss  << "LIVRE";
+    //verifica se faiza etária é maior que 0, se sim adiciona a informação, se não adiciona LIVRE
+    if(faixaEtaria < 1) ss  << "LIVRE";
+    else ss << faixaEtaria << " anos";
 
     ss << " - " << estilo;
     return ss.str();
@@ -52,8 +53,8 @@ bool Filme::operator<(const Filme &f) const {
     return titulo < f.obtemTitulo();
 }
 
-istream &operator>>(istream &in, Filme &f) {
-    string aux;
+istream &operator>>(istream &in, Filme &f) {// sobrecarga >>
+    string aux;// auxiliar utilizada nos getlines para a verificaçao e conversão
 
     if(getline(in, aux))  f.numero = stoi(aux);
 
@@ -66,7 +67,7 @@ istream &operator>>(istream &in, Filme &f) {
     return in;
 }
 
-ostream &operator<<(ostream &out,const Filme &f) {
+ostream &operator<<(ostream &out,const Filme &f) {// sobrecarga <<
     out << f.obtemNumero() << endl;
     out << f.obtemTitulo() << endl;
     out << f.obtemFaixaEtaria() << endl;

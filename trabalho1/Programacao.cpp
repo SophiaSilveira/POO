@@ -34,13 +34,16 @@ int Programacao::obtemTipoDeExibicao() const { return tipoDeExibicao; }
 
 string Programacao::obtemHorarios() const { return horarios; }
 
-string Programacao::str(bool incluiCinema) const {
+string Programacao::str(bool incluiCinema) const { //retorno das informações de forma padronizada
     stringstream ss;
 
+    //verifica se incluiCinema é true, se sim inclui nome cinema e  - 
     if(incluiCinema) ss << cinema->obtemNome() << " - ";
 
     ss << "Sala " << sala << ": " << filme->obtemTitulo() << " | " << horarios << " | ";
 
+    //verifica o tipo de exibiçõo caso 1, 2, 3, 4, 5(default)
+    //e os direciona respectivamete para LEG, DUB, 3D LEG, 3D DUB, NAC
     switch (tipoDeExibicao){
         case 1:
             ss << "LEG";
@@ -60,6 +63,7 @@ string Programacao::str(bool incluiCinema) const {
             break;
     }
 
+    //verifica se faixa etárioa menor que 1, adiciona | e live, else | e a faixa informada pelo onj. filme
     if(filme->obtemFaixaEtaria() < 1) ss << " | " << "[LIVRE";
     else ss << " | [" << filme->obtemFaixaEtaria();
     

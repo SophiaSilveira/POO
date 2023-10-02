@@ -39,12 +39,12 @@ string Endereco::obtemCidade() const{ return cidade; }
 
 string Endereco::obtemEstado() const{ return estado; }
 
-string Endereco::str() const{
+string Endereco::str() const{ //retorno das informações de forma padronizada
   stringstream ss;
 
   ss << logradouro << ", " << numero << " - ";
   
-  if(!complemento.empty()){
+  if(!complemento.empty()){ // se complemento diferente de vazio, então ele é adicionado
     ss << complemento << " - ";
   }
    
@@ -67,8 +67,8 @@ void Endereco::defineCidade(string cd){ cidade = cd; }
 
 void Endereco::defineEstado(string e){ estado = e; }
 
-istream &operator>>(istream &in, Endereco &e){
-  string aux;
+istream &operator>>(istream &in, Endereco &e){// sobrecarga >>
+  string aux;// auxiliar utilizada nos getlines para a verificaçao e conversão
 
   getline(in, e.logradouro);
   if(getline(in, aux)) e.numero = stoi(aux);
@@ -81,7 +81,7 @@ istream &operator>>(istream &in, Endereco &e){
   return in;
 }
 
-ostream &operator<<(ostream &out, const Endereco &e){
+ostream &operator<<(ostream &out, const Endereco &e){// sobrecarga <<
   out << e.logradouro << endl;
   out << e.numero << endl;
   out << e.complemento << endl;
