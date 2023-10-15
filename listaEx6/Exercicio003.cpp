@@ -122,8 +122,9 @@ void Campeonato::insere(Equipe *e){
 }
 
 void Campeonato::limpa(){
-    
+
 }
+
 // --- SOLUCAO (fim) ---
 
 void mostraCampeonato(Campeonato *c) {
