@@ -99,11 +99,31 @@ void Campeonato::insere(Equipe *e){
         numEquipes++;
     }
     else{
+        Nodo *aux = primeiro;
 
+        while(aux != nullptr){
+            if(equi->equipe->obtemPontos() > aux->equipe->obtemPontos()
+            || equi->equipe->obtemPontos() == aux->equipe->obtemPontos()
+            && equi->equipe->obtemClube() < aux->equipe->obtemClube()){
+                if(aux->ant != nullptr){
+                    (aux->ant)->prox = equi;
+                    equi->ant = aux->ant;
+                }
+                equi->prox = aux;
+                aux->ant = equi;
+                if(aux == primeiro) primeiro = equi;
+                break;
+            }
+            aux = aux->prox;
+        }
+
+        numEquipes++;
     }
 }
 
-void Campeonato::limpa(){}
+void Campeonato::limpa(){
+    
+}
 // --- SOLUCAO (fim) ---
 
 void mostraCampeonato(Campeonato *c) {
