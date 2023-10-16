@@ -121,8 +121,24 @@ void Campeonato::insere(Equipe *e){
     }
 }
 
-void Campeonato::limpa(){
 
+/*void Campeonato::insere(Equipe *e){
+    Nodo *equi = new Nodo(e);
+
+    if(primeiro == nullptr){
+        primeiro = equi;
+    }
+    else{
+
+    }
+}*/
+
+void Campeonato::limpa(){
+    while(primeiro != nullptr){
+        Nodo *aux = primeiro;
+        primeiro = primeiro->prox;
+        delete aux;
+    }
 }
 
 // --- SOLUCAO (fim) ---
