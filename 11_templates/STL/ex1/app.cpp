@@ -21,5 +21,8 @@ int main(){
         cout << endl << vetor[i];
     }
 
+    for(vector<int>::const_iterator it = vetor.begin(); it != vetor.end(); it++){
+         cout << endl << it;
+    }
     return 0;
 }
