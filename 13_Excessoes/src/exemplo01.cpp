@@ -17,8 +17,8 @@ int divisao(int a, int b) {
 int main() {
     try {
         cout << fatorial(4) << endl;
-        cout << divisao (4,0) << endl;
-        cout << fatorial(-1) << endl;
+        //cout << divisao (4,0) << endl;
+        //cout << fatorial(-1) << endl;
         cout << fatorial(0) << endl;
     }
     catch (const char *e) {
