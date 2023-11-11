@@ -8,7 +8,12 @@ use apenas aritmética de ponteiros. Faça isto para os vetores de inteiros e de
 using namespace std;
 
 void imprimeInt(int vet[]){
-    for(int i = 0; vet != ; vet++)
+    for(; *vet <= 10; vet++)
+        cout << *vet << endl;
+}
+
+void imprimeDouble(double vet[]){
+    for(int i = 0; i < 10; vet++, i++)
         cout << *vet << endl;
 }
 
@@ -26,5 +31,8 @@ int main(){
 
     imprimeInt(vetInt);
 
+    cout << endl;
+
+    imprimeDouble(vetDouble);
     return 0;
 }
