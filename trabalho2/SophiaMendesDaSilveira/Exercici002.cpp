@@ -1,7 +1,3 @@
-/**
- * Exercicio001 (Sophia Mendes da Silveira; 24 set. 2023)
- * */ 
-
 #include <iostream>
 #include <sstream>
 #include <algorithm>
@@ -97,7 +93,7 @@ vector<string> splitCSV(string linha, char separador=';') {
 }
 
 int main(){
-    vector<Filme> filmes;
+    vector<Filme*> filmes;
 
     string linha;
     while(getline(cin, linha)){
@@ -106,18 +102,38 @@ int main(){
         int numero = stoi(campos[0]);
         int faixaEtaria =  stoi(campos[2]);
 
-        filmes.push_back(Filme(numero, campos[1], faixaEtaria, campos[3]));
+        filmes.push_back( new Filme(numero, campos[1], faixaEtaria, campos[3]));
     } 
 
-    sort(filmes.begin(), filmes.end());
+    cout << endl << "verficando: " << filmes.size();
+    
+    vector <string> estilo;
+    vector <int> contagem;
+    
 
     for(int i = 0; i < filmes.size(); i++ ){
-        cout << filmes[i].str() << endl;
+        string filme = filmes[i]->obtemEstilo();
+        int existe = 0;
+        int qtd = 0;
+        for(int j = 0; j < estilo.size(); j++){
+            if(estilo[j] == filme){
+                existe = 1;
+                break;
+            } 
+        }
+
+        if(existe != 1) {
+            estilo.push_back(filmes[i]->obtemEstilo()); 
+            for(int l = 0; l < filmes.size(); l++ ){
+                if(filmes[l]->obtemEstilo() == filme) qtd++;
+            }
+            contagem.push_back(qtd);
+        }
     }
+
+    for(int l = 0; l < estilo.size(); l++ )
     
     filmes.clear();
-    
-    //delete
+
     return 0;
 }
-
